@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Super TicTacToe</title>
+		<link rel="stylesheet" href="./styles.css" />
+	</head>
+	<body>
+		<h1 class="title">Super TicTacToe</h1>
+		<div class="subtitle">Current player: <span id="player" data-player="x"></span></div>
+		<div id="game" data-active="-1" data-player="x">
+			<div id="field-1" class="field">
+				<div class="square square-1"></div>
+				<div class="square square-2"></div>
+				<div class="square square-3"></div>
+				<div class="square square-4"></div>
+				<div class="square square-5"></div>
+				<div class="square square-6"></div>
+				<div class="square square-7"></div>
+				<div class="square square-8"></div>
+				<div class="square square-9"></div>
+			</div>
+			<div id="field-2" class="field">
+				<div class="square square-1"></div>
+				<div class="square square-2"></div>
+				<div class="square square-3"></div>
+				<div class="square square-4"></div>
+				<div class="square square-5"></div>
+				<div class="square square-6"></div>
+				<div class="square square-7"></div>
+				<div class="square square-8"></div>
+				<div class="square square-9"></div>
+			</div>
+			<div id="field-3" class="field">
+				<div class="square square-1"></div>
+				<div class="square square-2"></div>
+				<div class="square square-3"></div>
+				<div class="square square-4"></div>
+				<div class="square square-5"></div>
+				<div class="square square-6"></div>
+				<div class="square square-7"></div>
+				<div class="square square-8"></div>
+				<div class="square square-9"></div>
+			</div>
+			<div id="field-4" class="field">
+				<div class="square square-1"></div>
+				<div class="square square-2"></div>
+				<div class="square square-3"></div>
+				<div class="square square-4"></div>
+				<div class="square square-5"></div>
+				<div class="square square-6"></div>
+				<div class="square square-7"></div>
+				<div class="square square-8"></div>
+				<div class="square square-9"></div>
+			</div>
+			<div id="field-5" class="field">
+				<div class="square square-1"></div>
+				<div class="square square-2"></div>
+				<div class="square square-3"></div>
+				<div class="square square-4"></div>
+				<div class="square square-5"></div>
+				<div class="square square-6"></div>
+				<div class="square square-7"></div>
+				<div class="square square-8"></div>
+				<div class="square square-9"></div>
+			</div>
+			<div id="field-6" class="field">
+				<div class="square square-1"></div>
+				<div class="square square-2"></div>
+				<div class="square square-3"></div>
+				<div class="square square-4"></div>
+				<div class="square square-5"></div>
+				<div class="square square-6"></div>
+				<div class="square square-7"></div>
+				<div class="square square-8"></div>
+				<div class="square square-9"></div>
+			</div>
+			<div id="field-7" class="field">
+				<div class="square square-1"></div>
+				<div class="square square-2"></div>
+				<div class="square square-3"></div>
+				<div class="square square-4"></div>
+				<div class="square square-5"></div>
+				<div class="square square-6"></div>
+				<div class="square square-7"></div>
+				<div class="square square-8"></div>
+				<div class="square square-9"></div>
+			</div>
+			<div id="field-8" class="field">
+				<div class="square square-1"></div>
+				<div class="square square-2"></div>
+				<div class="square square-3"></div>
+				<div class="square square-4"></div>
+				<div class="square square-5"></div>
+				<div class="square square-6"></div>
+				<div class="square square-7"></div>
+				<div class="square square-8"></div>
+				<div class="square square-9"></div>
+			</div>
+			<div id="field-9" class="field">
+				<div class="square square-1"></div>
+				<div class="square square-2"></div>
+				<div class="square square-3"></div>
+				<div class="square square-4"></div>
+				<div class="square square-5"></div>
+				<div class="square square-6"></div>
+				<div class="square square-7"></div>
+				<div class="square square-8"></div>
+				<div class="square square-9"></div>
+			</div>
+		</div>
+		<div id="gameover">
+			<h2>Game over</h2>
+			<div class="subtitle"><span id="winner" data-player="x"></span> won!</div>
+			<button id="new-game" type="button">New game</button>
+		</div>
+		<script src="./js/game.js"></script>
+		<script src="./js/player.js"></script>
+		<script src="./js/utils.js"></script>
+		<script src="./main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,225 @@
+:root {
+	--square-size: 2.5rem;
+	--field-spacing: 1.25rem;
+	--field-size: calc(3 * var(--square-size) + 2 * var(--field-spacing));
+	--border: 1px solid #000;
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+button {
+	padding: 0.5rem;
+	background-color: #222222;
+	color: #fff;
+	outline: 0;
+	border: 0;
+	border-radius: 0.25rem;
+	cursor: pointer;
+	transition: all 250ms ease-out;
+}
+
+button:hover {
+	background-color: #000;
+}
+
+.title {
+	text-align: center;
+	margin-bottom: 0.5rem;
+}
+
+.subtitle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	font-size: 1.25rem;
+	margin-bottom: 1.5rem;
+}
+
+#game {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, var(--field-size)));
+	grid-template-rows: repeat(3, minmax(0, var(--field-size)));
+	justify-content: center;
+}
+
+.field:nth-child(5),
+.square:nth-child(5) {
+	border: var(--border);
+}
+
+.field:nth-child(2),
+.field:nth-child(8),
+.square:nth-child(2),
+.square:nth-child(8) {
+	border-left: var(--border);
+	border-right: var(--border);
+}
+
+.field:nth-child(4),
+.field:nth-child(6),
+.square:nth-child(4),
+.square:nth-child(6) {
+	border-top: var(--border);
+	border-bottom: var(--border);
+}
+
+.field {
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, var(--square-size)));
+	grid-template-rows: repeat(3, minmax(0, var(--square-size)));
+	padding: var(--field-spacing);
+	pointer-events: none;
+	transition: all 200ms ease-out;
+}
+
+#game[data-active='-1'] .field,
+.field.active {
+	background-color: #d6ffd2;
+	pointer-events: all;
+}
+
+.field.winner-x::before,
+.field.winner-o::before {
+	z-index: 1;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: calc(var(--field-size) - var(--field-spacing));
+}
+
+#game .field.winner-x,
+#game .field.winner-o {
+	background-color: transparent;
+	pointer-events: none;
+}
+
+.field.winner-x .square,
+.field.winner-o .square {
+	opacity: 0.7;
+}
+
+.field.winner-x::before {
+	background-image: url('./assets/x.svg');
+}
+
+.field.winner-o::before {
+	background-image: url('./assets/o.svg');
+}
+
+.square {
+	position: relative;
+	cursor: pointer;
+}
+
+.field::before,
+.square::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+}
+
+.square::before {
+	z-index: 0;
+}
+
+.square.player-x,
+.square.player-o,
+.square:hover::before {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: calc(var(--square-size) - 0.5rem);
+}
+
+.square.player-x {
+	background-image: url('./assets/x.svg');
+}
+
+.square.player-o {
+	background-image: url('./assets/o.svg');
+}
+
+.square:hover::before {
+	opacity: 0.5;
+}
+
+#game[data-player='x'] .square:hover::before {
+	background-image: url('./assets/x.svg');
+}
+
+#game[data-player='o'] .square:hover::before {
+	background-image: url('./assets/o.svg');
+}
+
+#player,
+#winner {
+	display: inline-block;
+	width: calc(var(--square-size) / 2);
+	height: calc(var(--square-size) / 2);
+}
+
+#player[data-player='x'],
+#player[data-player='o'],
+#winner[data-player='x'],
+#winner[data-player='o'] {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 1rem;
+}
+
+#player[data-player='x'],
+#winner[data-player='x'] {
+	background-image: url('./assets/x.svg');
+}
+
+#player[data-player='o'],
+#winner[data-player='o'] {
+	background-image: url('./assets/o.svg');
+}
+
+#gameover {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	padding: 1rem;
+	border: var(--border);
+	border-radius: 0.5rem;
+	width: 100%;
+	max-width: 400px;
+	background-color: #fff;
+	scale: 0;
+}
+
+#gameover.show {
+	animation: gameOver 300ms ease-in-out forwards;
+}
+
+#gameover .subtitle {
+	margin-bottom: 0.75rem;
+}
+
+@keyframes gameOver {
+	80% {
+		scale: 1.2;
+	}
+
+	100% {
+		scale: 1;
+	}
+}
